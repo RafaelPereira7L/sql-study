@@ -1,0 +1,20 @@
+services: 
+  mysql_study:
+    container_name: mysql_study
+    hostname: mysql_study
+    image: mysql
+    restart: always
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb_force_recovery=0
+      - --default_time_zone=America/Sao_Paulo
+    volumes: 
+      - E:\'CODES\mysql_data:/var/lib/mysql
+    ports:
+      - 3307:3307
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_TCP_PORT: 3307
